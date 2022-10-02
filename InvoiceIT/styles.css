@@ -26,6 +26,13 @@
     margin-bottom: 0px
 }
 
+.results-list-hr {
+    border-top: 1.5px solid #d85c27;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 500px;
+}
+
 .page-body {
     padding-top: 100px;
     background: #efefef;
@@ -71,12 +78,18 @@
     border-radius: 20px;
 }
 
+.textbox-label-general-purpose {
+    float: left;
+    width: 50%;
+    padding-top: 20px;
+}
 
 .button-with-text-above {
     float: left;
     width: 50%;
     padding-top: 20px;
 }
+
 
 .textbox-with-label-above{
     margin : auto;
@@ -85,6 +98,24 @@
 
 .login-button-container {
     margin: auto;
+    width: 50%;
+}
+
+.add-button-container {
+    padding-top: 300px;
+    margin: auto;
+    width: 100%;
+}
+
+.button-one-row {
+    display: inline-block;
+    float: left;
+    width: 50%;
+}
+
+.button-two-row {
+    display: inline-block;
+    float: right;
     width: 50%;
 }
 
@@ -105,4 +136,37 @@
 .submit-button:hover {
     background-color: #ffffff;
     color: #d85c27;
+}
+
+.back-button {
+    background-color: #2f5c8f;
+    border: 2px solid #2f5c8f;
+    color: white;
+    padding: 15px 0px;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 6px;
+    transition-duration: 0.4s;
+    float: left;
+}
+
+.back-button:hover {
+    background-color: #ffffff;
+    color: #2f5c8f;
+}
+
+.dropdown-list {
+    width: 150px;
+    height: 25px;
+    border: solid 2px #d85c27;
+    border-radius: 5px;
+}
+
+.field-validator{
+    height: 25px;
+    color: red;
+    font-size: 12px;
 }

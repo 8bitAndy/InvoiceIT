@@ -21,7 +21,7 @@
                     <div class="button-with-text-above">
                         <asp:Label ID="LblClientManagement" class="main-button-label" runat="server" Height="50" Text="Client management"></asp:Label>
                         <br />
-                        <asp:LinkButton ID="LinkBtnClientManagement" class="submit-button" runat="server" href="about.aspx">Client portal</asp:LinkButton>
+                        <asp:LinkButton ID="LinkBtnClientManagement" class="submit-button" runat="server" href="AddStaffMember.aspx">Client portal</asp:LinkButton>
                     </div>
                     <div class="button-with-text-above">
                     <asp:Label ID="LblTaskManagement" class="main-button-label" runat="server" Height="50" Text="Task management"></asp:Label>
@@ -50,9 +50,6 @@
                         <asp:Button ID="Button3" class="submit-button" runat="server" Text="Invoice portal" />
                     </div>
                 </div>
-
-
-
             </div>
 
         </div>
