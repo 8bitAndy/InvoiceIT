@@ -96,22 +96,22 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// Label2 control.
+        /// LblStaffManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label LblStaffManagement;
 
         /// <summary>
-        /// Button2 control.
+        /// BtnStaffManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Button BtnStaffManagement;
 
         /// <summary>
         /// Label3 control.

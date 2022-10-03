@@ -106,11 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AddClient.aspx" />
     <Content Include="AddStaffMember.aspx" />
     <Content Include="App_Data\invit.mdf" />
     <Content Include="App_Data\invit_log.ldf">
       <DependentUpon>invit.mdf</DependentUpon>
     </Content>
+    <Content Include="ClientPortal.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -132,6 +134,7 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -161,6 +164,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="StaffPortal.aspx" />
     <Content Include="styles.css" />
     <Content Include="ViewStaffList.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -169,6 +173,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClient.aspx.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddClient.aspx.designer.cs">
+      <DependentUpon>AddClient.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddStaffMember.aspx.cs">
       <DependentUpon>AddStaffMember.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,6 +197,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="ClientPortal.aspx.cs">
+      <DependentUpon>ClientPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ClientPortal.aspx.designer.cs">
+      <DependentUpon>ClientPortal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,6 +236,13 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -234,6 +259,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Staff.cs" />
+    <Compile Include="StaffPortal.aspx.cs">
+      <DependentUpon>StaffPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StaffPortal.aspx.designer.cs">
+      <DependentUpon>StaffPortal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewStaffList.aspx.cs">
       <DependentUpon>ViewStaffList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

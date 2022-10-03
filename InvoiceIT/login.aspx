@@ -25,6 +25,7 @@
                 <asp:RequiredFieldValidator 
                     ControlToValidate="CtrlUsername"
                     ID="rfvUsername"
+                    class="field-validator-login"
                     Display="Static"
                     ErrorMessage="A username is required"
                     runat="server"/>
@@ -37,6 +38,7 @@
                 <asp:RequiredFieldValidator 
                     ControlToValidate="CtrlUserPassword"
                     ID="rfvUserPassword"
+                    class="field-validator-login"
                     Display="Static"
                     ErrorMessage="A password is required"
                     runat="server"/>

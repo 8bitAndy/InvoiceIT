@@ -125,5 +125,58 @@ namespace InvoiceIT
             return AllStaff;
 
         }
+
+        // This method returns the data of a specific user once they have entered their login details.
+        // This is used to create a session 
+        public List<string> GetStaff(string Username, string Password)
+        {
+            // Assign the arguments to the object fields
+            this.Username = Username;
+            this.Password = Password;
+
+            // Create a list to hold the firstname and access level of a staff member
+            List<string> details = new List<string>(2);
+
+            // Create a connection to the database
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command to retrive a specific staff members details
+            SqlCommand GetStaffDetails = new SqlCommand
+            {
+                CommandText = "SELECT FirstName, AccessLevel FROM [STAFF] WHERE Username = '" + Username+ "' AND Password = '" +Password + "'",
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+
+            // Read all results from the database
+            SqlDataReader reader = GetStaffDetails.ExecuteReader();
+
+            // Check that results are not null, if so then do
+            if (reader.HasRows)
+            {
+                // Loop over results and read
+                while (reader.Read())
+                {
+                    // Add each line to a single dimensional list that contains the result data
+                    details.Add(reader["FirstName"].ToString());
+                    details.Add(reader["AccessLevel"].ToString());
+                }
+                // Close the reader to prevent any errors
+                reader.Close();
+            }
+            else
+            {
+                // If no results then set return value to null
+                details = null;
+            }
+
+            // Close datbase connection
+            DBConnect.DropConnection(connection);
+
+            // Return the data read from the database
+            return details;
+
+        }
     }
 }

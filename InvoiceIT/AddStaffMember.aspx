@@ -132,7 +132,7 @@
                         <asp:Button ID="BtnAddNewStaffMember" class="submit-button" runat="server" OnClick="BtnAddNewStaffMember_Click" Text="Add staff member" />
                     </div>
                     <div class="button-one-row">
-                        <asp:LinkButton ID="BtnBackToMenu" class="back-button" href="index.aspx" runat="server">Back to menu</asp:LinkButton>
+                        <asp:LinkButton ID="BtnBackToMenu" class="back-button" href="StaffPortal.aspx" runat="server">Back to menu</asp:LinkButton>
                     </div>
                 </div>
             </div>
