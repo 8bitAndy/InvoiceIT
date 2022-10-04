@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="MainMenu" class="page-no-scroll" runat="server">
         <div class="page-header">
             <asp:Label ID="LblMainHeader" class="main-title" runat="server" Text="InvoiceIT"></asp:Label>
         </div>
@@ -24,9 +24,9 @@
                         <asp:LinkButton ID="LinkBtnClientManagement" class="submit-button" runat="server" href="ClientPortal.aspx">Client portal</asp:LinkButton>
                     </div>
                     <div class="button-with-text-above">
-                    <asp:Label ID="LblTaskManagement" class="main-button-label" runat="server" Height="50" Text="Task management"></asp:Label>
-                    <br />
-                    <asp:Button ID="BtnTaskManagement" class="submit-button" runat="server" Text="Task portal" />
+                        <asp:Label ID="LblTaskManagement" class="main-button-label" runat="server" Height="50" Text="Task management"></asp:Label>
+                        <br />
+                        <asp:LinkButton ID="LinkBtnTaskManagement" class="submit-button" runat="server" href="TaskPortal.aspx">Task portal</asp:LinkButton>
                     </div>
                 </div>
 
@@ -34,20 +34,20 @@
                     <div class="button-with-text-above">
                         <asp:Label ID="Label1" class="main-button-label" runat="server" Height="50" Text="Work Item management"></asp:Label>
                         <br />
-                        <asp:Button ID="Button1" class="submit-button" runat="server" Text="Work Item portal" />
+                        <asp:LinkButton ID="LinkBtnWorkItemManagement" class="submit-button" runat="server" href="WorkItemPortal.aspx">Work item portal</asp:LinkButton>
                     </div>
                     <div class="button-with-text-above">
                     <asp:Label ID="LblStaffManagement" class="main-button-label" runat="server" Height="50" Text="Staff management"></asp:Label>
                     <br />
-                    <asp:Button ID="BtnStaffManagement" class="submit-button" runat="server" OnClick="BtnStaffManagement_Click" Text="Staff portal" />
+                    <asp:LinkButton ID="LinkBtnStaffManagement" class="submit-button" runat="server" href="StaffPortal.aspx">Staff portal</asp:LinkButton>
                     </div>
                 </div>
 
                 <div class="row-with-buttons">
                     <div class="button-with-text-above">
-                        <asp:Label ID="Label3" class="main-button-label" runat="server" Height="50" Text="Invoice management"></asp:Label>
+                        <asp:Label ID="LblInvoiceManagement" class="main-button-label" runat="server" Height="50" Text="Invoice management"></asp:Label>
                         <br />
-                        <asp:Button ID="Button3" class="submit-button" runat="server" Text="Invoice portal" />
+                        <asp:LinkButton ID="LinkBtnInvoiceManagement" class="submit-button" runat="server" href="InvoicePortal.aspx">Invoice portal</asp:LinkButton>
                     </div>
                 </div>
             </div>

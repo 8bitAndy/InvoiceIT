@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="page-no-scroll" runat="server">
         <div class="page-header">
             <asp:Label ID="LblAddNewStaffMemberHeader" class="main-title" runat="server" Text="InvoiceIT"></asp:Label>
         </div>
@@ -105,7 +105,7 @@
                     <div class="textbox-label-general-purpose">
                         <asp:Label ID="LblStaffMobile" runat="server" Text="Mobile*"></asp:Label>
                         <br />
-                        <asp:TextBox ID="CtrlStaffMobile" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="CtrlStaffMobile" runat="server" MaxLength="10"></asp:TextBox>
                     </div>
                     <div class="textbox-label-general-purpose">
                         <asp:Label ID="LblPassword" runat="server" Text="Password*"></asp:Label>

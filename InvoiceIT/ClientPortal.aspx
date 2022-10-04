@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <form id="ClientManagementPortal" runat="server">
+    <form id="ClientManagementPortal" class="page-no-scroll" runat="server">
         <div class="page-header">
             <asp:Label ID="LblMainHeader" class="main-title" runat="server" Text="InvoiceIT"></asp:Label>
         </div>

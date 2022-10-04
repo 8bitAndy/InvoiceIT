@@ -107,7 +107,9 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddClient.aspx" />
+    <Content Include="AddNewTask.aspx" />
     <Content Include="AddStaffMember.aspx" />
+    <Content Include="AddWorkItem.aspx" />
     <Content Include="App_Data\invit.mdf" />
     <Content Include="App_Data\invit_log.ldf">
       <DependentUpon>invit.mdf</DependentUpon>
@@ -131,8 +133,28 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="jqrui\package.json" />
+    <Content Include="WorkItemPortal.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="index.aspx" />
+    <Content Include="jqrui\AUTHORS.txt" />
+    <Content Include="jqrui\external\jquery\jquery.js" />
+    <Content Include="jqrui\images\ui-icons_444444_256x240.png" />
+    <Content Include="jqrui\images\ui-icons_555555_256x240.png" />
+    <Content Include="jqrui\images\ui-icons_777620_256x240.png" />
+    <Content Include="jqrui\images\ui-icons_777777_256x240.png" />
+    <Content Include="jqrui\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="jqrui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="jqrui\index.html" />
+    <Content Include="jqrui\jquery-ui.css" />
+    <Content Include="jqrui\jquery-ui.js" />
+    <Content Include="jqrui\jquery-ui.min.css" />
+    <Content Include="jqrui\jquery-ui.min.js" />
+    <Content Include="jqrui\jquery-ui.structure.css" />
+    <Content Include="jqrui\jquery-ui.structure.min.css" />
+    <Content Include="jqrui\jquery-ui.theme.css" />
+    <Content Include="jqrui\jquery-ui.theme.min.css" />
+    <Content Include="jqrui\LICENSE.txt" />
     <Content Include="login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -166,6 +188,7 @@
     <Content Include="Site.Master" />
     <Content Include="StaffPortal.aspx" />
     <Content Include="styles.css" />
+    <Content Include="TaskPortal.aspx" />
     <Content Include="ViewStaffList.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -180,12 +203,26 @@
     <Compile Include="AddClient.aspx.designer.cs">
       <DependentUpon>AddClient.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddNewTask.aspx.cs">
+      <DependentUpon>AddNewTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddNewTask.aspx.designer.cs">
+      <DependentUpon>AddNewTask.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddStaffMember.aspx.cs">
       <DependentUpon>AddStaffMember.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AddStaffMember.aspx.designer.cs">
       <DependentUpon>AddStaffMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddWorkItem.aspx.cs">
+      <DependentUpon>AddWorkItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddWorkItem.aspx.designer.cs">
+      <DependentUpon>AddWorkItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="AppUtilities.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -197,6 +234,7 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Client.cs" />
     <Compile Include="ClientPortal.aspx.cs">
       <DependentUpon>ClientPortal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,6 +304,14 @@
     <Compile Include="StaffPortal.aspx.designer.cs">
       <DependentUpon>StaffPortal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Task.cs" />
+    <Compile Include="TaskPortal.aspx.cs">
+      <DependentUpon>TaskPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TaskPortal.aspx.designer.cs">
+      <DependentUpon>TaskPortal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewStaffList.aspx.cs">
       <DependentUpon>ViewStaffList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,6 +325,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItemPortal.aspx.cs">
+      <DependentUpon>WorkItemPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WorkItemPortal.aspx.designer.cs">
+      <DependentUpon>WorkItemPortal.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

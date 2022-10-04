@@ -53,12 +53,15 @@ namespace InvoiceIT
             // Check if button is pressed and data has been sent
             if (IsPostBack)
             {
-                // Saves values in form to database
-                // FIX COMMENTS HERE
+                // Create a new name value collection with the populated fields in the form
                 NameValueCollection NewStaffData = Request.Form;
+                // Create a new staff object
                 Staff NewStaffMember = new Staff();
+                // Saves values in form to database
                 string Result = NewStaffMember.AddStaffMember(NewStaffData);
+                // Print the result of the query to the user
                 Response.Write(Result);
+                // Clear the form so another entry can happen
                 AppUtilities.ClearForm(Form.Controls);
             }
         }

@@ -15,13 +15,13 @@ namespace InvoiceIT
     {
 
         /// <summary>
-        /// form1 control.
+        /// MainMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm MainMenu;
 
         /// <summary>
         /// LblMainHeader control.
@@ -69,13 +69,13 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Label LblTaskManagement;
 
         /// <summary>
-        /// BtnTaskManagement control.
+        /// LinkBtnTaskManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnTaskManagement;
+        protected global::System.Web.UI.WebControls.LinkButton LinkBtnTaskManagement;
 
         /// <summary>
         /// Label1 control.
@@ -87,13 +87,13 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Button1 control.
+        /// LinkBtnWorkItemManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.LinkButton LinkBtnWorkItemManagement;
 
         /// <summary>
         /// LblStaffManagement control.
@@ -105,30 +105,30 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Label LblStaffManagement;
 
         /// <summary>
-        /// BtnStaffManagement control.
+        /// LinkBtnStaffManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnStaffManagement;
+        protected global::System.Web.UI.WebControls.LinkButton LinkBtnStaffManagement;
 
         /// <summary>
-        /// Label3 control.
+        /// LblInvoiceManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LblInvoiceManagement;
 
         /// <summary>
-        /// Button3 control.
+        /// LinkBtnInvoiceManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.LinkButton LinkBtnInvoiceManagement;
     }
 }

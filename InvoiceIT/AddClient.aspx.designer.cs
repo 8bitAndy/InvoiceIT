@@ -69,13 +69,13 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Label LblAccessLevel;
 
         /// <summary>
-        /// CtrlFirstName control.
+        /// CtrlContactFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CtrlFirstName;
+        protected global::System.Web.UI.WebControls.TextBox CtrlContactFirstName;
 
         /// <summary>
         /// rfvCompName control.
@@ -276,13 +276,13 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Label LblBillTo;
 
         /// <summary>
-        /// CtrltBillTo control.
+        /// CtrlBillToDropList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CtrltBillTo;
+        protected global::System.Web.UI.WebControls.DropDownList CtrlBillToDropList;
 
         /// <summary>
         /// rfvPostcode control.
@@ -292,15 +292,6 @@ namespace InvoiceIT
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPostcode;
-
-        /// <summary>
-        /// rfvBillTo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBillTo;
 
         /// <summary>
         /// LblStatus control.

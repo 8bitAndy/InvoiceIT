@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <form id="AddNewClient" runat="server">
+    <form id="AddNewClient" class="page-no-scroll" runat="server">
         <div class="page-header">
             <asp:Label ID="LblAddNewClientHeader" class="main-title" runat="server" Text="InvoiceIT"></asp:Label>
         </div>
@@ -26,7 +26,7 @@
                     <div class="textbox-label-general-purpose">
                         <asp:Label ID="LblAccessLevel" runat="server" Text="Contact first name*"></asp:Label>
                         <br />
-                        <asp:TextBox ID="CtrlFirstName" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="CtrlContactFirstName" runat="server"></asp:TextBox>
                     </div>
                 </div>
                 <div class="field-validator">
@@ -37,7 +37,7 @@
                         ErrorMessage="A company name is required"
                         runat="server"/>
                     <asp:RequiredFieldValidator 
-                        ControlToValidate="CtrlFirstName"
+                        ControlToValidate="CtrlContactFirstName"
                         ID="rfvFirstName"
                         Display="Static"
                         ErrorMessage="A contact first name is required"
@@ -98,7 +98,7 @@
                     <div class="textbox-label-general-purpose">
                         <asp:Label ID="LblContactMobile" runat="server" Text="Contact Mobile*"></asp:Label>
                         <br />
-                        <asp:TextBox ID="CtrlContactMobile" runat="server" TextMode="Password" MaxLength="10"></asp:TextBox>
+                        <asp:TextBox ID="CtrlContactMobile" runat="server" MaxLength="10"></asp:TextBox>
                     </div>
                 </div>
                 <div class="field-validator">
@@ -124,7 +124,10 @@
                     <div class="textbox-label-general-purpose">
                         <asp:Label ID="LblBillTo" runat="server" Text="Bill To*"></asp:Label>
                         <br />
-                        <asp:TextBox ID="CtrltBillTo" runat="server" ></asp:TextBox>
+                            <asp:DropDownList ID="CtrlBillToDropList" class="dropdown-list" runat="server">
+                            <asp:ListItem>Company</asp:ListItem>
+                            <asp:ListItem>Client</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                 </div>
                 <div class="field-validator">
@@ -134,20 +137,15 @@
                         Display="Static"
                         ErrorMessage="A postcode is required"
                         runat="server"/>
-                    <asp:RequiredFieldValidator 
-                        ControlToValidate="CtrltBillTo"
-                        ID="rfvBillTo"
-                        Display="Static"
-                        ErrorMessage="A bill to is required"
-                        runat="server"/>
                 </div>
                 <div class="row-with-textboxes">
                     <div class="textbox-label-general-purpose">
                         <asp:Label ID="LblStatus" runat="server" Text="Status*"></asp:Label>
                         <br />
                         <asp:DropDownList ID="CtrlStatus" class="dropdown-list" runat="server">
-                            <asp:ListItem>Active</asp:ListItem>
-                            <asp:ListItem>Inactive</asp:ListItem>
+                            <asp:ListItem>Good</asp:ListItem>
+                            <asp:ListItem>In Arrears</asp:ListItem>
+                            <asp:ListItem>Discontinued</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                 </div>

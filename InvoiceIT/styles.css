@@ -2,6 +2,9 @@
     font-family: Arial, sans-serif;
     padding: 0;
     margin: 0;
+}
+
+.page-no-scroll{
     overflow: hidden;
 }
 
@@ -36,14 +39,14 @@
 .page-body {
     padding-top: 100px;
     background: #efefef;
-    height: 100em;
+    height: 45em;
     text-align: center;
 }
 
 .page-body-add-client {
     padding-top: 50px;
     background: #efefef;
-    height: 100em;
+    height: 45em;
     text-align: center;
 }
 
@@ -109,6 +112,24 @@
     text-align: left;
     padding-left: 125px;
     border-radius: 20px;
+}
+
+.add-work-item-page-content {
+    padding-top: 25px;
+    margin: auto;
+    background: #ffffff;
+    height: 500px;
+    width: 850px;
+    font-size: 30px;
+    color: #2f5c8f;
+    text-align: left;
+    padding-left: 125px;
+    border-radius: 20px;
+}
+
+.textbox-large{
+    width: 250px;
+    height: 75px;
 }
 
 .textbox-label-general-purpose {
