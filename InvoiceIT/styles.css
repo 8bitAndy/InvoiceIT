@@ -118,7 +118,7 @@
     padding-top: 25px;
     margin: auto;
     background: #ffffff;
-    height: 500px;
+    height: 550px;
     width: 850px;
     font-size: 30px;
     color: #2f5c8f;
@@ -127,8 +127,39 @@
     border-radius: 20px;
 }
 
-.textbox-large{
+.add-line-item-page-content {
+    padding-top: 25px;
+    margin: auto;
+    background: #ffffff;
+    height: 250px;
+    width: 850px;
+    font-size: 30px;
+    color: #2f5c8f;
+    text-align: left;
+    padding-left: 125px;
+    border-radius: 20px;
+}
+
+.invoice-management-page-content {
+    padding-top: 25px;
+    margin: auto;
+    background: #ffffff;
+    height: 500px;
+    width: 700px;
+    font-size: 30px;
+    color: #2f5c8f;
+    text-align: left;
+    padding-left: 125px;
+    border-radius: 20px;
+}
+
+.textbox-large {
     width: 250px;
+    height: 75px;
+}
+
+.textbox-medium {
+    width: 300px;
     height: 75px;
 }
 
@@ -162,6 +193,18 @@
 
 .add-client-button-container {
     padding-top: 350px;
+    margin: auto;
+    width: 100%;
+}
+
+.add-work-item-button-container {
+    padding-top: 450px;
+    margin: auto;
+    width: 100%;
+}
+
+.add-line-item-button-container {
+    padding-top: 150px;
     margin: auto;
     width: 100%;
 }
@@ -241,6 +284,180 @@
     padding-top: 150px;
 }
 
+.text-information-invoice {
+    padding-top: 275px;
+}
+
 .p-information-text {
     font-size: 18px;
+}
+
+.error-text {
+    color: red;
+    font-size: 14px;
+}
+
+
+/* Staff TABLE DISPLAY STYLES*/
+.stafflistingcont {
+    width: 90%;
+    padding: 0;
+}
+
+.stafflistingrow {
+    width: 100%;
+    padding: 3px 0 3px 0;
+    font-size: 16px;
+    display: block;
+    overflow: hidden;
+}
+
+.staff-id {
+    width: 5%;
+    float: left;
+}
+
+.staff-first-name {
+    width: 10%;
+    float: left;
+}
+
+.staff-last-name {
+    width: 10%;
+    float: left;
+}
+
+.staff-email {
+    width: 15%;
+    float: left;
+}
+
+.staff-mobile {
+    width: 10%;
+    float: left;
+}
+
+.staff-access-level {
+    width: 10%;
+    float: left;
+}
+
+.staff-status {
+    width: 8%;
+    float: left;
+}
+
+.staff-view-details {
+    width: 5%;
+    float: left;
+    text-decoration: none;
+}
+
+
+/* Task TABLE DISPLAY STYLES*/
+.task-id {
+    width: 5%;
+    float: left;
+}
+
+.task-title {
+    width: 30%;
+    float: left;
+}
+
+.task-view-details {
+    width: 10%;
+    float: left;
+}
+}
+
+.task-description {
+    width: 40%;
+    float: left;
+}
+
+.task-rate {
+    width: 8%;
+    float: left;
+}
+
+
+
+/* client TABLE DISPLAY STYLES*/
+.client-id {
+    width: 5%;
+    float: left;
+}
+
+.company-name {
+    width: 10%;
+    float: left;
+}
+
+.client-address-1 {
+    width: 15%;
+    float: left;
+}
+
+.client-location {
+    width: 10%;
+    float: left;
+}
+
+.client-postcode {
+    width: 7%;
+    float: left;
+}
+
+.contact-first-name {
+    width: 10%;
+    float: left;
+}
+
+.contact-last-name {
+    width: 10%;
+    float: left;
+}
+
+.client-status {
+    width: 8%;
+    float: left;
+}
+
+.staff-view-details {
+    width: 5%;
+    float: left;
+    text-decoration: none;
+}
+
+/* work item TABLE DISPLAY STYLES*/
+.work-item-id {
+    width: 10%;
+    float: left;
+}
+
+.work-item-status {
+    width: 8%;
+    float: left;
+}
+
+.work-item-view {
+    width: 10%;
+    float: left;
+}
+
+.work-item-comments{
+    width: 15%;
+    float: left;
+}
+
+/* work item TABLE DISPLAY STYLES*/
+.invoice-date {
+    width: 10%;
+    float: left;
+}
+
+.invoice-date-long {
+    width: 12%;
+    float: left;
 }

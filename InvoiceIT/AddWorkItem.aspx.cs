@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -69,7 +70,7 @@ namespace InvoiceIT
 
                 // Create the courses droplist
                 
-                dlclient = "<select class='dllist' name='CtrlCrsList'>";
+                dlclient = "<select class='dllist' name='CtrlClientList'>";
                 dlclient += "<option value='0'>--Please make a selection--</option>";
 
                 // Add all the clients to the client drop down list
@@ -108,7 +109,7 @@ namespace InvoiceIT
 
                 // Create the tasks droplist
 
-                dltask = "<select class='dllist' name='CtrlCrsList'>";
+                dltask = "<select class='dllist' name='CtrlTaskList'>";
                 dltask += "<option value='0'>--Please make a selection--</option>";
 
                 // Add all the tasks to the task drop down list
@@ -146,7 +147,7 @@ namespace InvoiceIT
                 int staffCount = allstaff.Count;
 
                 // Create the staff droplist
-                dlstaff = "<select class='dllist' name='CtrlCrsList'>";
+                dlstaff = "<select class='dllist' name='CtrlStaffList'>";
                 dlstaff += "<option value='0'>--Please make a selection--</option>";
 
                 // Add all the staff to the staff drop down list
@@ -159,17 +160,33 @@ namespace InvoiceIT
                 // Add the staff droplist to the placeholder on the aspx page
                 StaffListPH.Text = dlstaff;
             }
-
         }
 
         protected void BtnAddNewWorkItem_Click(object sender, EventArgs e)
         {
             if (IsPostBack)
             {
-                string workDate;
-                // Test of converting date to string 
-                workDate = DateTime.ParseExact(Request.Form["CtrlWorkItemDate"], "dd/MM/yyyy", null).ToString("MM/dd/yyyy");
-                Response.Write("<br/> the date selected is: " + workDate);
+                // Check to see if date picker was filled out, prevents errors
+                if(Request.Form["CtrlWorkItemDate"] == null || string.IsNullOrWhiteSpace(Request.Form["CtrlWorkItemDate"]))
+                {
+                    LblValidatorList.Text = "<p class='error-text'>Date was not entered</p>";
+                }
+                else
+                {
+                    // This code executes if the user has correctly chosen a date
+                    LblValidatorList.Text = "";
+
+                    // Create a new name value collection with the populated fields in the form
+                    NameValueCollection NewWorkItemData = Request.Form;
+                    // Create a new work item object
+                    WorkItem NewWorkItem = new WorkItem();
+                    // Saves values in form to database
+                    string Result = NewWorkItem.AddWorkItem(NewWorkItemData);
+                    // Print the result of the query to the user
+                    Response.Write("<br/>" + Result);
+                    // Clear the form so another entry can happen
+                    AppUtilities.ClearForm(Form.Controls);
+                }
             }
             
         }

@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div class="view-list-page">
-        </div>
+    <form id="ViewStaffList" runat="server">
+        <asp:LinkButton ID="BtnBackToMenu" class="back-button" href="StaffPortal.aspx" runat="server">Back to menu</asp:LinkButton>
     </form>
 </body>
 </html>

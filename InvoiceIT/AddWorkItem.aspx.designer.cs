@@ -78,22 +78,22 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Literal ClientsListPH;
 
         /// <summary>
-        /// Label1 control.
+        /// LblStartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LblStartTime;
 
         /// <summary>
-        /// Text1 control.
+        /// CtrlStartTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text1;
+        protected global::System.Web.UI.WebControls.DropDownList CtrlStartTime;
 
         /// <summary>
         /// LblTaskList control.
@@ -114,22 +114,22 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Literal TaskListPH;
 
         /// <summary>
-        /// Label3 control.
+        /// LblEndTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LblEndTime;
 
         /// <summary>
-        /// Text2 control.
+        /// CtrlEndTime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Text2;
+        protected global::System.Web.UI.WebControls.DropDownList CtrlEndTime;
 
         /// <summary>
         /// LblStaffList control.
@@ -150,6 +150,42 @@ namespace InvoiceIT
         protected global::System.Web.UI.WebControls.Literal StaffListPH;
 
         /// <summary>
+        /// LblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblStatus;
+
+        /// <summary>
+        /// CtrlStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList CtrlStatus;
+
+        /// <summary>
+        /// LblComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblComment;
+
+        /// <summary>
+        /// CtrlComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CtrlComment;
+
+        /// <summary>
         /// BtnAddNewWorkItem control.
         /// </summary>
         /// <remarks>
@@ -166,5 +202,14 @@ namespace InvoiceIT
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton BtnBackToMenu;
+
+        /// <summary>
+        /// LblValidatorList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal LblValidatorList;
     }
 }

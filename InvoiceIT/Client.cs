@@ -138,5 +138,58 @@ namespace InvoiceIT
             return AllClients;
 
         }
+
+        // Display details of a specific client
+        public List<string> GetClient(int ClientID)
+        {
+            // Set object field to parameter
+            this.Client_ID = ClientID;
+            List<string> details = new List<string>(12);
+
+            // Make new connection to database
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL sequence to get the specific course a user wants
+            SqlCommand GetClientDetails = new SqlCommand
+            {
+                CommandText = "SELECT * FROM CLIENT WHERE Client_ID = " + Client_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Create new data reader and execute query
+            SqlDataReader reader = GetClientDetails.ExecuteReader();
+
+            // Test if something has gone wrong
+            if (!reader.HasRows)
+            {
+                details = null;
+            }
+            else
+            {
+                // Code here exectues if everything happened successfully
+                while (reader.Read())
+                {
+                    details.Add(reader["Client_ID"].ToString()); // Add Client ID to list index position 0
+                    details.Add(reader["CompName"].ToString()); // Add Company name to list index position 1
+                    details.Add(reader["CompAdd1"].ToString()); // Add Company address 1 to list index position 2
+                    details.Add(reader["CompAdd2"].ToString()); // Add Company address 2 to list index position 3
+                    details.Add(reader["CompLocation"].ToString()); // Add Company location to list index position 4
+                    details.Add(reader["CompPcode"].ToString()); // Add Company post code to list index position 5
+                    details.Add(reader["ContactFname"].ToString()); // Add Contact first name to list index position 6
+                    details.Add(reader["ContactLname"].ToString()); // Add Contact last name to list index position 7
+                    details.Add(reader["ContactEmail"].ToString()); // Add Contact email to list index position 8
+                    details.Add(reader["ContactMobile"].ToString()); // Add Contact mobile to list index position 9
+                    details.Add(reader["BillTo"].ToString()); // Add Bill to to list index position 10
+                    details.Add(reader["Status"].ToString()); // Add Status to list index position 11
+                }
+            }
+
+            // Close the database connection
+            DBConnect.DropConnection(connection);
+
+            // Return the details list 
+            return details;
+        }
     }
 }

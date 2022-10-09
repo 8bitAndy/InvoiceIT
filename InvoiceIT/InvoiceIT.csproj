@@ -107,6 +107,8 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AddClient.aspx" />
+    <Content Include="AddInvoice.aspx" />
+    <Content Include="AddLineItem.aspx" />
     <Content Include="AddNewTask.aspx" />
     <Content Include="AddStaffMember.aspx" />
     <Content Include="AddWorkItem.aspx" />
@@ -133,7 +135,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="InvoicePortal.aspx" />
     <Content Include="jqrui\package.json" />
+    <Content Include="ViewClientDetails.aspx" />
+    <Content Include="ViewClientList.aspx" />
+    <Content Include="ViewInvoiceList.aspx" />
+    <Content Include="ViewTaskList.aspx" />
+    <Content Include="ViewWorkItemList.aspx" />
     <Content Include="WorkItemPortal.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="index.aspx" />
@@ -203,6 +211,20 @@
     <Compile Include="AddClient.aspx.designer.cs">
       <DependentUpon>AddClient.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AddInvoice.aspx.cs">
+      <DependentUpon>AddInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddInvoice.aspx.designer.cs">
+      <DependentUpon>AddInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddLineItem.aspx.cs">
+      <DependentUpon>AddLineItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddLineItem.aspx.designer.cs">
+      <DependentUpon>AddLineItem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AddNewTask.aspx.cs">
       <DependentUpon>AddNewTask.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -267,6 +289,15 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Invoice.cs" />
+    <Compile Include="InvoicePortal.aspx.cs">
+      <DependentUpon>InvoicePortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvoicePortal.aspx.designer.cs">
+      <DependentUpon>InvoicePortal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LineItem.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,6 +343,27 @@
     <Compile Include="TaskPortal.aspx.designer.cs">
       <DependentUpon>TaskPortal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewClientDetails.aspx.cs">
+      <DependentUpon>ViewClientDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewClientDetails.aspx.designer.cs">
+      <DependentUpon>ViewClientDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewClientList.aspx.cs">
+      <DependentUpon>ViewClientList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewClientList.aspx.designer.cs">
+      <DependentUpon>ViewClientList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInvoiceList.aspx.cs">
+      <DependentUpon>ViewInvoiceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewInvoiceList.aspx.designer.cs">
+      <DependentUpon>ViewInvoiceList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewStaffList.aspx.cs">
       <DependentUpon>ViewStaffList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -326,6 +378,21 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewTaskList.aspx.cs">
+      <DependentUpon>ViewTaskList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTaskList.aspx.designer.cs">
+      <DependentUpon>ViewTaskList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewWorkItemList.aspx.cs">
+      <DependentUpon>ViewWorkItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewWorkItemList.aspx.designer.cs">
+      <DependentUpon>ViewWorkItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WorkItem.cs" />
     <Compile Include="WorkItemPortal.aspx.cs">
       <DependentUpon>WorkItemPortal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
