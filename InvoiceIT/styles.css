@@ -260,6 +260,29 @@
     color: #2f5c8f;
 }
 
+.delete-button{
+    background-color: red;
+    border: 2px solid red;
+    color: white;
+    padding: 15px 0px;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 6px;
+    transition-duration: 0.4s;
+}
+
+.delete-button:hover {
+    background-color: #ffffff;
+    color: red;
+}
+
+.delete-button-container {
+    padding-top: 60px;
+}
+
+
 .dropdown-list {
     width: 150px;
     height: 25px;

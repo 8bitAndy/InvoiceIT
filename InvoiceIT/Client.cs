@@ -149,7 +149,7 @@ namespace InvoiceIT
             // Make new connection to database
             SqlConnection connection = DBConnect.CreateConnection();
 
-            // SQL sequence to get the specific course a user wants
+            // SQL sequence to get the specific client
             SqlCommand GetClientDetails = new SqlCommand
             {
                 CommandText = "SELECT * FROM CLIENT WHERE Client_ID = " + Client_ID,
@@ -190,6 +190,98 @@ namespace InvoiceIT
 
             // Return the details list 
             return details;
+        }
+
+        // This method is used to update the client table in the database
+        public string UpdateClient(NameValueCollection UpdateClientData)
+        {
+            // Get values from the form and assign to the fields of this object
+            this.Client_ID = Convert.ToInt32(UpdateClientData["CtrlClientID"]);
+            this.CompName = UpdateClientData["CtrlCompName"];
+            this.CompAdd1 = UpdateClientData["CtrlAddress1"];
+            this.CompAdd2 = UpdateClientData["CtrlAddress2"];
+            this.CompLocation = UpdateClientData["CtrlLocation"];
+            this.CompPcode = UpdateClientData["CtrlPostcode"];
+            this.ContactFname = UpdateClientData["CtrlContactFirstName"];
+            this.ContactLname = UpdateClientData["CtrlContactLastName"];
+            this.ContactEmail = UpdateClientData["CtrlContactEmail"];
+            this.ContactMobile = UpdateClientData["CtrlContactMobile"];
+            this.BillTo = UpdateClientData["CtrlBillTo"];
+            this.Status = UpdateClientData["CtrlClientStatus"];
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for updating the table with the new information
+            SqlCommand UpdateCourse = new SqlCommand
+            {
+                CommandText = "UPDATE CLIENT SET CompName = '" + CompName + "', CompAdd1 = '" + CompAdd1 +
+                "', CompAdd2 = '" + CompAdd2 + "', CompLocation = '" + CompLocation + "', CompPcode = '" +
+                CompPcode + "', ContactFname = '" + ContactFname + "', ContactLname = '" + ContactLname +
+                "', ContactEmail = '" + ContactEmail + "', ContactMobile = '" + ContactMobile + "', BillTo = '" +
+                BillTo + "', Status = '" + Status + "' WHERE Client_ID = " + Client_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = UpdateCourse.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
+        }
+
+        public string DeleteClient(int ClientID)
+        {
+            // Get id to be used to delete the current client from database
+            this.Client_ID = ClientID;
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for delete the current client record from the table
+            SqlCommand DeleteClient = new SqlCommand
+            {
+                CommandText = "DELETE FROM CLIENT WHERE Client_ID = " + Client_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = DeleteClient.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
         }
     }
 }

@@ -116,5 +116,134 @@ namespace InvoiceIT
             return AllTasks;
 
         }
+
+        // Display details of a specific task
+        public List<string> GetTask(int TaskID)
+        {
+            // Set object field to parameter
+            this.Task_ID = TaskID;
+            List<string> details = new List<string>(4);
+
+            // Make new connection to database
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL sequence to get the specific task
+            SqlCommand GetTaskDetails = new SqlCommand
+            {
+                CommandText = "SELECT * FROM TASK WHERE Task_ID = " + Task_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Create new data reader and execute query
+            SqlDataReader reader = GetTaskDetails.ExecuteReader();
+
+            // Test if something has gone wrong
+            if (!reader.HasRows)
+            {
+                details = null;
+            }
+            else
+            {
+                // Code here exectues if everything happened successfully
+                while (reader.Read())
+                {
+                    details.Add(reader["Task_ID"].ToString()); // Add task ID to list index position 0
+                    details.Add(reader["TaskTitle"].ToString()); // Add task name to list index position 1
+                    details.Add(reader["TaskDescription"].ToString()); // Add task description to list index position 2
+                    details.Add(reader["TaskRate"].ToString()); // Add task rate to list index position 3
+                }
+            }
+
+            // Close the database connection
+            DBConnect.DropConnection(connection);
+
+            // Return the details list 
+            return details;
+        }
+
+        // Update the details of the current instance of a task
+        public string UpdateTask(NameValueCollection UpdateClientData)
+        {
+            // Get values from the form and assign to the fields of this object
+            this.Task_ID = Convert.ToInt32(UpdateClientData["CtrlTaskID"]);
+            this.TaskTitle = UpdateClientData["CtrlTaskTitle"];
+            this.TaskDescription = UpdateClientData["CtrlTaskDescription"];
+            this.TaskRate = UpdateClientData["CtrlTaskRate"];
+
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for updating the table with the new information
+            SqlCommand UpdateTask = new SqlCommand
+            {
+                CommandText = "UPDATE TASK SET TaskTitle = '" + TaskTitle + "', TaskDescription = '" + TaskDescription +
+                "', TaskRate = '" + TaskRate + "' WHERE Task_ID = " + Task_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = UpdateTask.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
+        }
+
+        // Used to delete the current task from the database
+        public string DeleteTask(int TaskID)
+        {
+            // Get id to be used to delete the current task from database
+            this.Task_ID = TaskID;
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for delete the current client record from the table
+            SqlCommand DeleteTask = new SqlCommand
+            {
+                CommandText = "DELETE FROM TASK WHERE Task_ID = " + Task_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = DeleteTask.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
+        }
+
     }
 }

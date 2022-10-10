@@ -126,7 +126,57 @@ namespace InvoiceIT
 
             // Return the data read from the database
             return AllWorkItems;
+        }
 
+
+        // Display details of a work item
+        public List<string> GetWorkItem(int WorkItem)
+        {
+            // Set object field to parameter
+            this.WorkItem_ID = WorkItem;
+            List<string> details = new List<string>(9);
+
+            // Make new connection to database
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL sequence to get the specific work item 
+            SqlCommand GetWorkItemDetails = new SqlCommand
+            {
+                CommandText = "SELECT * FROM WORKITEM WHERE WorkItem_ID = " + WorkItem_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Create new data reader and execute query
+            SqlDataReader reader = GetWorkItemDetails.ExecuteReader();
+
+            // Test if something has gone wrong
+            if (!reader.HasRows)
+            {
+                details = null;
+            }
+            else
+            {
+                // Code here exectues if everything happened successfully
+                while (reader.Read())
+                {
+                    details.Add(reader["WorkItem_ID"].ToString()); // Add WorkItem ID to list index position 0
+                    details.Add(reader["Date"].ToString()); // Add date to list index position 1
+                    details.Add(reader["StartTime"].ToString()); // Add start time to list index position 2
+                    details.Add(reader["EndTime"].ToString()); // Add end time to list index position 3
+                    details.Add(reader["Status"].ToString()); // Add status to list index position 4
+                    details.Add(reader["Client_ID"].ToString()); // Add client id to list index position 5
+                    details.Add(reader["Task_ID"].ToString()); // Add task id to list index position 6
+                    details.Add(reader["Staff_ID"].ToString()); // Add staff id to list index position 7
+                    details.Add(reader["Comment"].ToString()); // Add comments to list index position 8
+                }
+            }
+
+            // Close the database connection
+            DBConnect.DropConnection(connection);
+
+            // Return the details list 
+            return details;
         }
     }
 }

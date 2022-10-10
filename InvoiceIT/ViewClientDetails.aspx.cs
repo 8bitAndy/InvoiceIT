@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -92,6 +93,37 @@ namespace InvoiceIT
             {
                 // Something went wrong code here
                 Response.Write("No ID in url or couldn't parse to an int");
+            }
+        }
+
+        // Delete the current client from the database
+        protected void BtnDeleteCurrentClient_Click(object sender, EventArgs e)
+        {
+            // If form data is submitted via button press
+            if (IsPostBack)
+            {
+                // Get the current forms client ID from the parameters
+                int ClientID = Convert.ToInt32(Request.Params["ID"]);
+                // Create a new client object to send ID to
+                Client DeleteClient = new Client();
+
+                // Get the result of the delete query
+                string Result = DeleteClient.DeleteClient(ClientID);
+                if (Result == "Query Succeeded")
+                {
+                    this.frmcontClientDelete.Visible = false;
+                    Response.Write("<br/>");
+                    Response.Write("<span class='success'>Client details deleted successfully.</span><br />");
+                    Response.Write("<a href='ViewClientList.aspx'>Return to Course List</a>");
+                }
+                else
+                {
+                    this.frmcontClientDelete.Visible = false;
+                    Response.Write("<br/>");
+                    Response.Write("<span class='error'>Deletion failed, client details have not been changed.</span><br />");
+                    Response.Write("<a href='ViewClientList.aspx'>Return to Course List</a>");
+                }
+
             }
         }
     }

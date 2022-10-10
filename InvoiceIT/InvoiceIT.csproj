@@ -137,10 +137,16 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="InvoicePortal.aspx" />
     <Content Include="jqrui\package.json" />
+    <Content Include="UpdateClient.aspx" />
+    <Content Include="UpdateStaff.aspx" />
+    <Content Include="UpdateTask.aspx" />
     <Content Include="ViewClientDetails.aspx" />
     <Content Include="ViewClientList.aspx" />
     <Content Include="ViewInvoiceList.aspx" />
+    <Content Include="ViewStaffDetails.aspx" />
+    <Content Include="ViewTaskDetails.aspx" />
     <Content Include="ViewTaskList.aspx" />
+    <Content Include="ViewWorkItemDetails.aspx" />
     <Content Include="ViewWorkItemList.aspx" />
     <Content Include="WorkItemPortal.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -343,6 +349,27 @@
     <Compile Include="TaskPortal.aspx.designer.cs">
       <DependentUpon>TaskPortal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UpdateClient.aspx.cs">
+      <DependentUpon>UpdateClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateClient.aspx.designer.cs">
+      <DependentUpon>UpdateClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateStaff.aspx.cs">
+      <DependentUpon>UpdateStaff.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateStaff.aspx.designer.cs">
+      <DependentUpon>UpdateStaff.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTask.aspx.cs">
+      <DependentUpon>UpdateTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateTask.aspx.designer.cs">
+      <DependentUpon>UpdateTask.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewClientDetails.aspx.cs">
       <DependentUpon>ViewClientDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -364,6 +391,13 @@
     <Compile Include="ViewInvoiceList.aspx.designer.cs">
       <DependentUpon>ViewInvoiceList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewStaffDetails.aspx.cs">
+      <DependentUpon>ViewStaffDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewStaffDetails.aspx.designer.cs">
+      <DependentUpon>ViewStaffDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewStaffList.aspx.cs">
       <DependentUpon>ViewStaffList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -378,12 +412,26 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewTaskDetails.aspx.cs">
+      <DependentUpon>ViewTaskDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewTaskDetails.aspx.designer.cs">
+      <DependentUpon>ViewTaskDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewTaskList.aspx.cs">
       <DependentUpon>ViewTaskList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewTaskList.aspx.designer.cs">
       <DependentUpon>ViewTaskList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewWorkItemDetails.aspx.cs">
+      <DependentUpon>ViewWorkItemDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewWorkItemDetails.aspx.designer.cs">
+      <DependentUpon>ViewWorkItemDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewWorkItemList.aspx.cs">
       <DependentUpon>ViewWorkItemList.aspx</DependentUpon>

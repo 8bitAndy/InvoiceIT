@@ -178,5 +178,145 @@ namespace InvoiceIT
             return details;
 
         }
+
+
+        // Display details of a specific staff member
+        public List<string> GetStaff(int StaffID)
+        {
+            // Set object field to parameter
+            this.Staff_ID = StaffID;
+            List<string> details = new List<string>(9);
+
+            // Make new connection to database
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL sequence to get the specific staff member
+            SqlCommand GetStaffDetails = new SqlCommand
+            {
+                CommandText = "SELECT * FROM STAFF WHERE Staff_ID = " + Staff_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Create new data reader and execute query
+            SqlDataReader reader = GetStaffDetails.ExecuteReader();
+
+            // Test if something has gone wrong
+            if (!reader.HasRows)
+            {
+                details = null;
+            }
+            else
+            {
+                // Code here exectues if everything happened successfully
+                while (reader.Read())
+                {
+                    details.Add(reader["Staff_ID"].ToString()); // Add staff ID to list index position 0
+                    details.Add(reader["FirstName"].ToString()); // Add first name to list index position 1
+                    details.Add(reader["Surname"].ToString()); // Add surname to list index position 2
+                    details.Add(reader["Email"].ToString()); // Add email to list index position 3
+                    details.Add(reader["Mobile"].ToString()); // Add mobile to list index position 4
+                    details.Add(reader["AccessLevel"].ToString()); // Add access to list index position 5
+                    details.Add(reader["Status"].ToString()); // Add status to list index position 6
+                    details.Add(reader["Username"].ToString()); // Add username to list index position 7
+                    details.Add(reader["Password"].ToString()); // Add password to list index position 8
+                }
+            }
+
+            // Close the database connection
+            DBConnect.DropConnection(connection);
+
+            // Return the details list 
+            return details;
+        }
+
+        // This method is used to update the STAFF database table
+        public string UpdateStaff(NameValueCollection UpdateStaffData)
+        {
+            // Get values from the form and assign to the fields of this object
+            this.Staff_ID = Convert.ToInt32(UpdateStaffData["CtrlStaffID"]);
+            this.FirstName = UpdateStaffData["CtrlFirstName"];
+            this.Surname = UpdateStaffData["CtrlSurname"];
+            this.Email = UpdateStaffData["CtrlStaffEmail"];
+            this.Mobile = UpdateStaffData["CtrlStaffMobile"];
+            this.AccessLevel = UpdateStaffData["CtrlAccessLevel"];
+            this.Status = UpdateStaffData["CtrlStaffStatus"];
+            this.Username = UpdateStaffData["CtrlUsername"];
+            this.Password = UpdateStaffData["CtrlPassword"];
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for updating the table with the new information
+            SqlCommand UpdateCourse = new SqlCommand
+            {
+                CommandText = "UPDATE STAFF SET FirstName = '" + FirstName + "', Surname = '" + Surname +
+                "', Email = '" + Email + "', Mobile = '" + Mobile + "', AccessLevel = '" +
+                AccessLevel + "', Status = '" + Status + "', Username = '" + Username +
+                "', Password = '" + Password + "' WHERE Staff_ID = " + Staff_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = UpdateCourse.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
+        }
+
+        // This method deletes the a staff member from the STAFF table when an id number is given as input
+        public string DeleteStaff(int StaffID)
+        {
+            // Get id to be used to delete the current client from database
+            this.Staff_ID = StaffID;
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for delete the current client record from the table
+            SqlCommand DeleteStaff = new SqlCommand
+            {
+                CommandText = "DELETE FROM STAFF WHERE Staff_ID = " + Staff_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = DeleteStaff.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
+        }
     }
 }

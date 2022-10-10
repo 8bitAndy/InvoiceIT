@@ -95,7 +95,7 @@ namespace InvoiceIT
                     Response.Write("<div class='contact-first-name'>" + allworkitems[i][5] + "</div>");
                     Response.Write("<div class='contact-last-name'>" + allworkitems[i][6] + "</div>");
                     Response.Write("<div class='client-status'>" + allworkitems[i][7] + "</div>");
-                    Response.Write("<a class='work-item-view' href='ViewStaffDetails.aspx?ID=" + allworkitems[i][0] + "'>View</a>");
+                    Response.Write("<a class='work-item-view' href='ViewWorkItemDetails.aspx?ID=" + allworkitems[i][0] + "'>View</a>");
                     Response.Write("<div class='work-item-comments'>" + allworkitems[i][8] + "</div>");
                     Response.Write("</div>");
                 }
