@@ -29,13 +29,14 @@ namespace InvoiceIT
                 AccessLevel = AccessLevel.Trim();
 
                 // Give the user a tailored message depending on login credentials
-                if (AccessLevel == "Staff")
+                if (AccessLevel == "Administrator")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }
-                else if (AccessLevel == "Administrator")
+                else if (AccessLevel == "Staff")
                 {
-                    Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
+                    // Defensive programming, return back to main page if staff
+                    Response.Redirect("index.aspx");
                 }
                 else
                 {
@@ -104,26 +105,83 @@ namespace InvoiceIT
             {
                 // Get the current forms client ID from the parameters
                 int ClientID = Convert.ToInt32(Request.Params["ID"]);
-                // Create a new client object to send ID to
-                Client DeleteClient = new Client();
 
-                // Get the result of the delete query
-                string Result = DeleteClient.DeleteClient(ClientID);
-                if (Result == "Query Succeeded")
+                // Check invoices to see if client is there
+
+                // Code here to check if client id is in use elsewhere. IF so then cannot be deleted.
+                // Check work item to see if client is there
+                WorkItem CheckWorkItem = new WorkItem();
+                // Get a list of every work item
+                List<List<string>> allworkitems = CheckWorkItem.GetWorkItem();
+
+                // Check invoices to see if client is there
+                Invoice CheckInvoice = new Invoice();
+                // Get a list of every invoice
+                List<List<string>> allinvoices = CheckInvoice.GetInvoice();
+
+                // Count of how many work items or invoices the client appears in
+                int mentions = 0;
+
+                // If results are not null then make a count
+                if (allworkitems != null || allinvoices != null)
                 {
-                    this.frmcontClientDelete.Visible = false;
-                    Response.Write("<br/>");
-                    Response.Write("<span class='success'>Client details deleted successfully.</span><br />");
-                    Response.Write("<a href='ViewClientList.aspx'>Return to Course List</a>");
+                    // Number of results returned from query
+                    int results1 = allworkitems.Count;
+
+                    // Loop through results and check to see if client is mentioned in any work items
+                    for(int i = 0; i <= results1 - 1; i++)
+                    {
+                        // See if client id matches the current client ID
+                        if(Convert.ToInt32(allworkitems[i][5]) == ClientID)
+                        {
+                            mentions += 1;
+                        }
+                    }
+                    // Check if client id appears in any invoices and add to count if they do
+                    // Number of results returned from query
+                    int results2 = allinvoices.Count;
+
+                    // Loop through results and check to see if client is mentioned in any invoices
+                    for (int j = 0; j <= results2 - 1; j++)
+                    {
+                        // See if client id matches the invoice id
+                        if (Convert.ToInt32(allinvoices[j][7]) == ClientID)
+                        {
+                            mentions += 1;
+                        }
+                    }
+                }
+                if (mentions >= 1)
+                {
+                    // Print to screen if client is mentioned in
+                    ErrorMessagePH.Text = "The current client is used in other parts of the application, cannot be deleted until other references are deleted";
                 }
                 else
                 {
-                    this.frmcontClientDelete.Visible = false;
-                    Response.Write("<br/>");
-                    Response.Write("<span class='error'>Deletion failed, client details have not been changed.</span><br />");
-                    Response.Write("<a href='ViewClientList.aspx'>Return to Course List</a>");
-                }
+                    // No error message since client can be deleted
+                    ErrorMessagePH.Text = "";
 
+                    // Carry on with deletion since it is allowed
+                    // Create a new client object to send ID to
+                    Client DeleteClient = new Client();
+
+                    // Get the result of the delete query
+                    string Result = DeleteClient.DeleteClient(ClientID);
+                    if (Result == "Query Succeeded")
+                    {
+                        this.frmcontClientDelete.Visible = false;
+                        Response.Write("<br/>");
+                        Response.Write("<span class='success'>Client details deleted successfully.</span><br />");
+                        Response.Write("<a href='ViewClientList.aspx'>Return to Client List</a>");
+                    }
+                    else
+                    {
+                        this.frmcontClientDelete.Visible = false;
+                        Response.Write("<br/>");
+                        Response.Write("<span class='error'>Deletion failed, client details have not been changed.</span><br />");
+                        Response.Write("<a href='ViewClientList.aspx'>Return to Client List</a>");
+                    }
+                }
             }
         }
     }

@@ -28,11 +28,11 @@ namespace InvoiceIT
                 AccessLevel = AccessLevel.Trim();
 
                 // Give the user a tailored message depending on login credentials
-                if (AccessLevel == "Staff")
+                if (AccessLevel == "Administrator")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }
-                else if (AccessLevel == "Administrator")
+                else if (AccessLevel == "Staff")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }
@@ -86,6 +86,75 @@ namespace InvoiceIT
             {
                 // Something went wrong code here
                 Response.Write("No ID in url or couldn't parse to an int");
+            }
+        }
+
+        protected void BtnDeleteCurrent_Click(object sender, EventArgs e)
+        {
+            // If form data is submitted via button press
+            if (IsPostBack)
+            {
+                // Get the current forms client ID from the parameters
+                int WorkItemID = Convert.ToInt32(Request.Params["ID"]);
+
+                // Check invoices to see if client is there
+
+                // Code here to check if workitem is in use elsewhere. IF so then cannot be deleted.
+
+                // Check invoices to see if client is there
+                LineItem CheckLineItem = new LineItem();
+                // Get a list of every invoice
+                List<List<string>> alllineitems = CheckLineItem.GetLineItem();
+
+                // Count of how many work items or invoices the client appears in
+                int mentions = 0;
+
+                // If results are not null then make a count
+                if (alllineitems != null)
+                {
+                    // Check if client id appears in any invoices and add to count if they do
+                    // Number of results returned from query
+                    int results = alllineitems.Count;
+
+                    // Loop through results and check to see if client is mentioned in any invoices
+                    for (int j = 0; j <= results - 1; j++)
+                    {
+                        // See if client id matches the invoice id
+                        if (Convert.ToInt32(alllineitems[j][2]) == WorkItemID)
+                        {
+                            mentions += 1;
+                        }
+                    }
+                }
+                if (mentions >= 1)
+                {
+                    // Print to screen if client is mentioned in
+                    ErrorMessagePH.Text = "The current work item is used in other parts of the application, cannot be deleted until other references are deleted";
+                }
+                else
+                {
+                    // No error message since client can be deleted
+                    ErrorMessagePH.Text = "";
+
+                    // Carry on with deletion since it is allowed
+                    // Create a new client object to send ID to
+                    WorkItem DeleteWorkItem = new WorkItem();
+
+                    // Get the result of the delete query
+                    string Result = DeleteWorkItem.DeleteWorkItem(WorkItemID);
+                    if (Result == "Query Succeeded")
+                    {
+                        Response.Write("<br/>");
+                        Response.Write("<span class='success'>Work Item  details deleted successfully.</span><br />");
+                        Response.Write("<a href='ViewWorkItemList.aspx'>Return to Work Item  List</a>");
+                    }
+                    else
+                    {
+                        Response.Write("<br/>");
+                        Response.Write("<span class='error'>Deletion failed, Work Item  details have not been changed.</span><br />");
+                        Response.Write("<a href='ViewWorkItemList.aspx'>Return to Work Item  List</a>");
+                    }
+                }
             }
         }
     }

@@ -140,6 +140,7 @@
     <Content Include="UpdateClient.aspx" />
     <Content Include="UpdateStaff.aspx" />
     <Content Include="UpdateTask.aspx" />
+    <Content Include="UpdateWorkItem.aspx" />
     <Content Include="ViewClientDetails.aspx" />
     <Content Include="ViewClientList.aspx" />
     <Content Include="ViewInvoiceList.aspx" />
@@ -369,6 +370,13 @@
     </Compile>
     <Compile Include="UpdateTask.aspx.designer.cs">
       <DependentUpon>UpdateTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateWorkItem.aspx.cs">
+      <DependentUpon>UpdateWorkItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateWorkItem.aspx.designer.cs">
+      <DependentUpon>UpdateWorkItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewClientDetails.aspx.cs">
       <DependentUpon>ViewClientDetails.aspx</DependentUpon>

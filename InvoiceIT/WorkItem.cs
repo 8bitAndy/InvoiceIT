@@ -178,5 +178,94 @@ namespace InvoiceIT
             // Return the details list 
             return details;
         }
+
+        // This method is used to update the STAFF database table
+        public string UpdateWorkItem(NameValueCollection UpdateWorkItemData)
+        {
+            // Get values from the form and assign to the fields of this object
+            this.WorkItem_ID = Convert.ToInt32(UpdateWorkItemData["CtrlStaffID"]);
+            this.Date = DateTime.ParseExact(UpdateWorkItemData["CtrlWorkItemDate"], "dd/MM/yyyy", null).ToString("MM/dd/yyyy");
+            this.StartTime = UpdateWorkItemData["CtrlStartTime"];
+            this.EndTime = UpdateWorkItemData["CtrlEndTime"];
+            this.Status = UpdateWorkItemData["CtrlStatus"];
+            this.Client_ID = Convert.ToInt32(UpdateWorkItemData["CtrlClientList"]);
+            this.Task_ID = Convert.ToInt32(UpdateWorkItemData["CtrlTaskList"]);
+            this.Staff_ID = Convert.ToInt32(UpdateWorkItemData["CtrlStaffList"]);
+            this.Comment = UpdateWorkItemData["CtrlComment"];
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for updating the table with the new information
+            SqlCommand UpdateCourse = new SqlCommand
+            {
+                CommandText = "UPDATE WORKITEM SET Date = '" + Date + "', StartTime = '" + StartTime +
+                "', Endtime = '" + EndTime + "', Status = '" + Status + "', Client_ID = '" +
+                Client_ID + "', Task_ID = '" + Task_ID + "', Staff_ID = '" + Staff_ID +
+                "', Comment = '" + Comment + "' WHERE WorkItem_ID = " + WorkItem_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = UpdateCourse.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
+        }
+
+        // This method deletes the a staff member from the STAFF table when an id number is given as input
+        public string DeleteWorkItem(int WorkItemID)
+        {
+            // Get id to be used to delete the current WorkItem from database
+            this.WorkItem_ID = WorkItemID;
+
+            SqlConnection connection = DBConnect.CreateConnection();
+
+            // SQL command for delete the current client record from the table
+            SqlCommand DeleteWorkItem = new SqlCommand
+            {
+                CommandText = "DELETE FROM WORKITEM WHERE WorkItem_ID = " + WorkItem_ID,
+                CommandType = CommandType.Text,
+                Connection = connection
+            };
+
+            // Defensive programming to check the connection to the database and present a meaningful message
+            if (connection.State == ConnectionState.Open)
+            {
+                int a = DeleteWorkItem.ExecuteNonQuery();
+                if (a == 0)
+                {
+                    this.Message = "Query Failed";
+                }
+                else
+                {
+                    this.Message = "Query Succeeded";
+                }
+            }
+            else
+            {
+                this.Message = "SQL DB Connect failed";
+            }
+
+            // Remove the current database connection
+            DBConnect.DropConnection(connection);
+            return Message;
+        }
     }
 }

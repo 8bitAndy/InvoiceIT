@@ -29,13 +29,14 @@ namespace InvoiceIT
                 AccessLevel = AccessLevel.Trim();
 
                 // Give the user a tailored message depending on login credentials
-                if (AccessLevel == "Staff")
+                if (AccessLevel == "Administrator")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }
-                else if (AccessLevel == "Administrator")
+                else if (AccessLevel == "Staff")
                 {
-                    Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
+                    // Defensive programming, return back to main page if staff
+                    Response.Redirect("index.aspx");
                 }
                 else
                 {
@@ -43,12 +44,12 @@ namespace InvoiceIT
                     Response.Redirect("login.aspx");
                 }
 
-            /*
-            CODE FOR GENERATING Invoice ID DROP DOWN LIST
-            */
+                /*
+                CODE FOR GENERATING Invoice ID DROP DOWN LIST
+                */
 
-            // Create a variable to hold the generated drop list for invoice
-            string dlinvoice;
+                // Create a variable to hold the generated drop list for invoice
+                string dlinvoice;
 
             // Create a new invoice object
             Invoice AllInvoices = new Invoice();
@@ -119,10 +120,7 @@ namespace InvoiceIT
                 // Add all the tasks to the task drop down list
                 for (int j = 0; j <= workitemCount - 1; j++)
                 {
-                    // Get the name of the work item
-                    int taskID = Convert.ToInt32(allworkitems[j][0]);
-
-                    dlworkitems += "<option value='" + allworkitems[j][0] + "'>" + " (ID " + allworkitems[j][0] + ") " + tasknames[taskID][1] + "</option>";
+                    dlworkitems += "<option value='" + allworkitems[j][0] + "'>" + " (ID " + allworkitems[j][0] + ") " + "</option>";
                 }
 
                 dlworkitems += "</select>";

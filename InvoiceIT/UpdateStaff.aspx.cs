@@ -29,13 +29,14 @@ namespace InvoiceIT
                 AccessLevel = AccessLevel.Trim();
 
                 // Give the user a tailored message depending on login credentials
-                if (AccessLevel == "Staff")
+                if (AccessLevel == "Administrator")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }
-                else if (AccessLevel == "Administrator")
+                else if (AccessLevel == "Staff")
                 {
-                    Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
+                    // Defensive programming, return back to login if not a valid user
+                    Response.Redirect("index.aspx");
                 }
                 else
                 {
@@ -147,14 +148,14 @@ namespace InvoiceIT
                     this.frmcontStaff.Visible = false;
                     Response.Write("<br/>");
                     Response.Write("<span class='success'>Staff details updated successfully.</span><br />");
-                    Response.Write("<a href='ViewStaffList.aspx'>Return to Course List</a>");
+                    Response.Write("<a href='ViewStaffList.aspx'>Return to Staff List</a>");
                 }
                 else
                 {
                     this.frmcontStaff.Visible = false;
                     Response.Write("<br/>");
                     Response.Write("<span class='error'>Update failed, staff details have not been changed.</span><br />");
-                    Response.Write("<a href='ViewStaffList.aspx'>Return to Course List</a>");
+                    Response.Write("<a href='ViewStaffList.aspx'>Return to Staff List</a>");
                 }
 
             }

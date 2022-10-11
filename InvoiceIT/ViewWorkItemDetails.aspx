@@ -12,8 +12,10 @@
         <asp:LinkButton ID="BtnBackToMenu" class="back-button" href="ViewWorkItemList.aspx" runat="server">Go Back</asp:LinkButton>
         <br/>
         <div class="delete-button-container">
-            <asp:Button ID="BtnDeleteCurrent" class="delete-button" runat="server" Text="Delete current item" />
+            <asp:Button ID="BtnDeleteCurrent" class="delete-button" OnClick="BtnDeleteCurrent_Click" runat="server" Text="Delete current item" />
         </div>
+        <br />
+        <asp:Literal ID="ErrorMessagePH" runat="server"></asp:Literal>
     </form>
 </body>
 </html>

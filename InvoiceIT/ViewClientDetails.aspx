@@ -16,6 +16,8 @@
         <div class="delete-button-container">
             <asp:Button ID="BtnDeleteCurrentClient" class="delete-button" OnClick="BtnDeleteCurrentClient_Click" runat="server" Text="Delete current staff" />
         </div>
+        <br />
+        <asp:Literal ID="ErrorMessagePH" runat="server"></asp:Literal>
     </form>
      </div>
 </body>

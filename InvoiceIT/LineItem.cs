@@ -68,25 +68,25 @@ namespace InvoiceIT
             return Message;
         }
 
-        /*// This method lists all workitems
-        public List<List<string>> GetWorkItem()
+        // This method lists all line items
+        public List<List<string>> GetLineItem()
         {
             // Create a connection to the database
             SqlConnection connection = DBConnect.CreateConnection();
 
-            // SQL command to retrive all workitems from the WORKITEM database table
-            SqlCommand GetAllWorkItems = new SqlCommand
+            // SQL command to retrive all workitems from the LINEITEM database table
+            SqlCommand GetAllLineItems = new SqlCommand
             {
-                CommandText = "SELECT * FROM WORKITEM",
+                CommandText = "SELECT * FROM LINEITEM",
                 CommandType = CommandType.Text,
                 Connection = connection
             };
 
             // Create a multi dimensional list that will hold all of the data from the query
-            List<List<string>> AllWorkItems = new List<List<string>>();
+            List<List<string>> AllLineItems = new List<List<string>>();
 
             // Read all results from the database
-            SqlDataReader reader = GetAllWorkItems.ExecuteReader();
+            SqlDataReader reader = GetAllLineItems.ExecuteReader();
 
             // Check that results are not null, if so then do
             if (reader.HasRows)
@@ -95,10 +95,8 @@ namespace InvoiceIT
                 while (reader.Read())
                 {
                     // Add each line to a single dimensional list that contains the result data
-                    AllWorkItems.Add(new List<string> {reader["WorkItem_ID"].ToString(), reader["Date"].ToString(),
-                        reader["StartTime"].ToString(), reader["EndTime"].ToString(), reader["Status"].ToString(),
-                        reader["Client_ID"].ToString(), reader["Task_ID"].ToString(), reader["Staff_ID"].ToString(),
-                        reader["Comment"].ToString() });
+                    AllLineItems.Add(new List<string> {reader["LineItem_ID"].ToString(), reader["InvoiceNumber"].ToString(),
+                        reader["WorkItem_ID"].ToString()});
                 }
                 // Close the reader to prevent any errors
                 reader.Close();
@@ -106,15 +104,15 @@ namespace InvoiceIT
             else
             {
                 // If no results then set return value to null
-                AllWorkItems = null;
+                AllLineItems = null;
             }
 
             // Close datbase connection
             DBConnect.DropConnection(connection);
 
             // Return the data read from the database
-            return AllWorkItems;
+            return AllLineItems;
 
-        }*/
+        }
     }
 }

@@ -28,11 +28,11 @@ namespace InvoiceIT
                 AccessLevel = AccessLevel.Trim();
 
                 // Give the user a tailored message depending on login credentials
-                if (AccessLevel == "Staff")
+                if (AccessLevel == "Administrator")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }
-                else if (AccessLevel == "Administrator")
+                else if (AccessLevel == "Staff")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }

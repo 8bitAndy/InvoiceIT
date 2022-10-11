@@ -30,14 +30,14 @@ namespace InvoiceIT
                 // Trim all leading or trailing white space
                 AccessLevel = AccessLevel.Trim();
 
-                // Allow only the admin on this page
+                // Give the user a tailored message depending on login credentials
                 if (AccessLevel == "Administrator")
                 {
                     Response.Write("Hello " + userDetails[0] + " you are logged in as " + AccessLevel + " | <a href='Logout.aspx'>Log out</a>");
                 }
                 else if (AccessLevel == "Staff")
                 {
-                    // Defensive programming, return back to main page if not an admin
+                    // Defensive programming, return back to main page if staff
                     Response.Redirect("index.aspx");
                 }
                 else
